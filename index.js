@@ -5,6 +5,7 @@ const app = express()
 const {userRouter}  = require("./Routes/Auth.route")
 const {postRouter}  = require("./Routes/post.route")
 
+
 app.use(express.json())
 app.use("/user",userRouter)
 app.use("/post",postRouter)
