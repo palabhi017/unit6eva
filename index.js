@@ -2,12 +2,12 @@ const express = require("express")
 const {connection} = require("./db")
 require("dotenv").config()
 const app = express()
-const {userModel} =  require("./Model/Auth.model")
-const {postModel} = require("./Model/post.model")
+const {userRouter}  = require("./Routes/Auth.route")
+const {postRouter}  = require("./Routes/post.route")
 
 app.use(express.json())
-app.use("/users",userModel)
-app.use("/posts",postModel)
+app.use("/user",userRouter)
+app.use("/post",postRouter)
 
 
 
@@ -17,7 +17,7 @@ try {
     console.log("port is running")
 } catch (error) {
     console.log(error)
-}
+} 
 })
 
 

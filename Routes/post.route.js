@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const {authenticate} = require("../Middleware/auth.middleware")
 const postRouter = express.Router()
 
-postRouter.use(authenticate)
+// postRouter.use(authenticate)
 
 postRouter.post("/add",async(req,res)=>{
   try {
@@ -14,6 +14,7 @@ postRouter.post("/add",async(req,res)=>{
   } catch (error) { 
     res.status(400).json({"err":"bad request"})
   }
+
 })
 
 postRouter.get("/",async(req,res)=>{
@@ -61,3 +62,5 @@ try {
     res.status(400).json({"err":"bad request"})
 }
 })
+
+module.exports ={postRouter}
