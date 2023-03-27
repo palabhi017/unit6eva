@@ -4,7 +4,7 @@ require("dotenv").config()
 const app = express()
 const {userRouter}  = require("./Routes/Auth.route")
 const {postRouter}  = require("./Routes/post.route")
-const port = process.env.PORT || 8080
+
 const cors = require("cors")
 
 app.use(cors())
@@ -14,10 +14,14 @@ app.use("/post",postRouter)
 
 
 
-app.listen(port,()=>{
-
-   connection()
+app.listen(process.env.port, async()=>{
+try {
+   await connection
     console.log("port is running ",port)
+} catch (error) {
+    console.log(error)
+}
+  
  
 })
 
